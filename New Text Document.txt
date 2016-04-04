@@ -1,0 +1,40 @@
+vector<vector<int> > Solution::prettyPrint(int A) {
+    // Do not write main() function.
+    // Do not read input, instead use the arguments to the function.
+    // Do not print the output, instead return values as specified
+    // Still have a doubt. Checkout www.interviewbit.com/pages/sample_codes/ for more details
+    vector<vector<int>> matrix;
+    int size=2*A-1;
+    int i,j;
+    int B=size+A;
+    for ( i = 0; i < size; i++ ) 
+    matrix.push_back ( std::vector<int>() );
+    for(i=0;i<A;i++){
+        int temp=A;
+        for(j=0;j<size;j++){
+            matrix[i].push_back(temp);
+            if(j<i){
+                temp--;
+            }
+            if(j>=size-(i+1)){
+                temp++;
+            }
+        
+        }
+    }   
+     for(i=A;i<size;i++){
+        int temp=A;
+        for(j=size;j>0;j--){
+            matrix[i].push_back(temp);
+            if(j>i+1){
+                temp--;
+            }
+            if(j<size-i+1){
+                temp++;
+            }
+        
+        }    
+  
+}
+ return matrix;
+}
